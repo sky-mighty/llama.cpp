@@ -308,6 +308,10 @@ struct llama_layer {
     struct ggml_tensor * wv_enc    = nullptr;
     struct ggml_tensor * wo_enc    = nullptr;
     struct ggml_tensor * wqkv_gate = nullptr;
+    // K2 Horizon MoVA
+    struct ggml_tensor * attn_v_gate   = nullptr;
+    struct ggml_tensor * attn_v_gate_b = nullptr;
+    struct ggml_tensor * attn_v_exps   = nullptr;
 
     // relative position bias
     struct ggml_tensor * attn_rel_b       = nullptr;
@@ -684,6 +688,7 @@ struct llama_model {
     struct ggml_tensor * cls_out   = nullptr;
     struct ggml_tensor * cls_out_b = nullptr;
     struct ggml_tensor * cls_norm  = nullptr;
+    struct ggml_tensor * cls_norm_b = nullptr;
 
     struct ggml_tensor * conv1d   = nullptr;
     struct ggml_tensor * conv1d_b = nullptr;
